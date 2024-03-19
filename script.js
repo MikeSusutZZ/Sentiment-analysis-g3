@@ -11,14 +11,33 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // HERE YOU WILL CALL YOUR SENTIMENT ANALYSIS AI FUNCTION
-        // SIMULATE A RESULT FOR NOW
-        const sentimentResult = "Positive"; // THIS SHOULD BE REPLACED WITH ACTUAL AI CALL
-        displayResult(sentimentResult);
+        // REPLACE THE CONTENT BELOW WITH YOUR ACTUAL API CALL
+        // Simulating an API response for demonstration
+        const apiResponse = [
+            [
+                { "label": "negative", "score": 0.9987391829490662 },
+                { "label": "neutral", "score": 0.0007296210387721658 },
+                { "label": "positive", "score": 0.0005312702851369977 }
+            ]
+        ];
+
+        // Process the API response to find the highest sentiment and its confidence
+        processApiResponse(apiResponse);
     });
 
-    function displayResult(sentiment) {
-        // UPDATE THIS TO DISPLAY YOUR SENTIMENT RESULT AS NEEDED
-        resultSection.innerHTML = `<p>Sentiment: <strong>${sentiment}</strong></p>`;
+    function processApiResponse(response) {
+        // Assuming the response structure is as provided and consistent
+        const sentiments = response[0];
+        const highestSentiment = sentiments.reduce((prev, current) => (prev.score > current.score) ? prev : current);
+
+        displayResult(highestSentiment.label, highestSentiment.score);
+    }
+
+    function displayResult(sentiment, confidence) {
+        // Format confidence as a percentage
+        const confidencePercentage = (confidence * 100).toFixed(2);
+
+        // Update this to display your sentiment result as needed
+        resultSection.innerHTML = `<p>Sentiment: <strong>${sentiment}</strong><br>Confidence: <strong>${confidencePercentage}%</strong></p>`;
     }
 });
