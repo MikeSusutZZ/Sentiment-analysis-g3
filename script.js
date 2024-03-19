@@ -27,13 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // REPLACE THE CONTENT BELOW WITH YOUR ACTUAL API CALL
         // Simulating an API response for demonstration
         let apiResponse;
-        // [
-        //     // [
-        //     //     { "label": "negative", "score": 0.9987391829490662 },
-        //     //     { "label": "neutral", "score": 0.0007296210387721658 },
-        //     //     { "label": "positive", "score": 0.0005312702851369977 }
-        //     // ]
-        // ];
 
         query({"inputs": "I like you. I love you"}).then((response) => {
             // console.log(JSON.stringify(response));
