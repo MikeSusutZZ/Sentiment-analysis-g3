@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Simulating an API response for demonstration
         let apiResponse;
 
-        query({"inputs": "I like you. I love you"}).then((response) => {
+        query({"inputs": userInput}).then((response) => {
             // console.log(JSON.stringify(response));
             apiResponse = JSON.stringify(response);
         });
